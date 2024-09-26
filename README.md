@@ -26,23 +26,61 @@ The Blogger project is built with the following technologies:
 - **Email Sender Service**: Integrated email service to send notifications.
 - **Authentication & Authorization**: Role-based security with JWT support for API security.
 
-## 📂 Project Structure
+## 🔧 Installation
 
-The project follows a modular structure separating business logic, data access, and web interfaces:
+### Prerequisites
 
-```plaintext
-Blogger/
-├── Blogger.Business/           # Business logic layer
-│   ├── Services/               # Business services for blogs, categories, users, comments, etc.
-│   ├── Validations/            # Validators for data transfer objects (DTOs)
-│
-├── Blogger.Data/               # Data access layer (repositories, DbContext)
-│
-├── Blogger.WEB/                # Web application layer (ASP.NET Core MVC)
-│   ├── Controllers/            # Controllers handling HTTP requests
-│   ├── Views/                  # Razor Views for UI rendering
-│   ├── Services/               # API service clients for communication
-│   ├── ViewComponents/         # Reusable components for dynamic content in views
-│   └── Utilities/Extensions/   # Extension methods and utilities for controllers
-│
-└── Blogger.Common/             # Shared utilities, constants, and helpers
+- .NET 6 SDK
+- SQL Server (or another supported database system by Entity Framework Core)
+- A code editor such as Visual Studio or Visual Studio Code
+
+### Steps to Run Locally
+
+1. **Clone the repository**:
+
+    ```bash
+    git clone https://github.com/your-username/Blogger.git
+    ```
+
+2. **Navigate to the project directory**:
+
+    ```bash
+    cd Blogger
+    ```
+
+3. **Restore project dependencies**:
+
+    ```bash
+    dotnet restore
+    ```
+
+4. **Apply database migrations**:
+
+    If using Entity Framework Core, ensure your database is up to date:
+
+    ```bash
+    dotnet ef database update
+    ```
+
+5. **Build the project**:
+
+    ```bash
+    dotnet build
+    ```
+
+6. **Run the application**:
+
+    ```bash
+    dotnet run
+    ```
+
+7. Open a browser and navigate to [http://localhost:5000](http://localhost:5000) to access the Blogger web application.
+
+## 🗄️ Database Configuration
+
+Update the `appsettings.json` file in the **Blogger.WEB** project to configure your database connection string:
+
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "Server=your_server;Database=BloggerDB;User Id=your_user;Password=your_password;"
+}
